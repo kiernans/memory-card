@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import Card from './components/Card';
 
 const App = () => {
 
-  const [card, changeCard] = useState({ id: null, image: null, wasPicked: null });
-  const [cards, changeCards] = useState([]);
-
   return (
     <div className="App">
-      
+      <Card />
     </div>
   );
 }
