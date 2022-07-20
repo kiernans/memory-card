@@ -1,0 +1,22 @@
+.card {
+    display: flex;
+    background-color: aqua;
+    height: 170px;
+    width: 180px;
+    border: 2px solid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    padding: 25px;
+} 
+
+.card img {
+    height: 150px;
+    width: 75px;
+}
+
+.Cards {
+    display: grid;
+    grid-template-columns: repeat(4, 235px);
+    grid-template-rows: repeat(4, 1fr);
+}

@@ -1,0 +1,10 @@
+html,
+body {
+    height: 100%;
+    background-color: navy;
+}
+
+.App {
+    display: grid;
+    grid-template-rows: 1fr 15fr;
+}
