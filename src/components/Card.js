@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import uniqid from 'uniqid';
+import DisplayCards from "./DisplayCards";
 
 const Card = () => {
 
@@ -20,7 +21,7 @@ const Card = () => {
 
 	return (
 		<div className="Card">
-
+			<DisplayCards cards={cards}/>
 		</div>
 	);
 
