@@ -20,6 +20,10 @@ const Card = () => {
 		}
 	}, [card, cards]);
 
+	const shuffleCards = (cards) => {
+		return cards.sort((a,b) => 0.5 - Math.random());
+	};
+
 	const handleOnClick = (e) => {
 		const id = e.target.id ? e.target.id : e.target.parentElement.id;
 		const newState = cards.map(card => {
@@ -29,7 +33,7 @@ const Card = () => {
 			
 			return card;
 		});
-		setCards(newState);
+		setCards(shuffleCards(newState));
 	};
 
 	return (
