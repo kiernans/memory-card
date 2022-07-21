@@ -1,13 +1,13 @@
 import React from "react";
 import '../styles/Card.css'
 
-const DisplayCards = ({ cards }) => {
+const DisplayCards = ({ cards, handleOnClick }) => {
 
     return (
         <div className="Cards">
             {cards.map((card) => {
-                return <div className="card" key={card.id}>
-                            <img src={require('../images/1.png')} alt='' />
+                return  <div key={card.id} className="card"  id={card.id} onClick={handleOnClick}>
+                            <img src={card.image} alt='' />
                         </div>
             })
             }
