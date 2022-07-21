@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import uniqid from 'uniqid';
 import DisplayCards from "./DisplayCards";
 
-const Card = () => {
+const Card = ({ score, bestScore }) => {
 
 	const [cards, setCards] = useState([]);
 	const [card, setCard] = useState({ id: uniqid(), image: require(`../images/${cards.length + 1}.png`), wasPicked: false });
-	
 
 	useEffect(() => {
 		if(cards.length < 14) {
