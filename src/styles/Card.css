@@ -1,8 +1,8 @@
 .card {
     display: flex;
     background-color: aqua;
-    height: 170px;
     width: 180px;
+    height: 200px;
     border: 2px solid;
     justify-content: center;
     align-items: center;
@@ -11,12 +11,11 @@
 } 
 
 .card img {
-    height: 150px;
-    width: 75px;
+    max-height: 90%;
+    max-width: 90%;
 }
 
 .Cards {
-    display: grid;
-    grid-template-columns: repeat(4, 235px);
-    grid-template-rows: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
 }
