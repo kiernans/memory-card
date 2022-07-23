@@ -12,6 +12,10 @@ const App = () => {
     setScore(score + 1);
   };
 
+  const resetScore = () => {
+    setScore(0);
+  };
+
   const updateBestScore = () => {
     setBestScore(score);
   };
@@ -21,7 +25,8 @@ const App = () => {
       <Header score={score} bestScore={bestScore}/>
       <Card score={score} 
             bestScore={bestScore} 
-            incrementScore={incrementScore} 
+            incrementScore={incrementScore}
+            resetScore={resetScore} 
             updateBestScore={updateBestScore}/>
     </div>
   );
