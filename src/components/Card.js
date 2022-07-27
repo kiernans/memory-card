@@ -5,19 +5,31 @@ import DisplayCards from "./DisplayCards";
 const Card = ({ score, bestScore, incrementScore, updateBestScore, resetScore }) => {
 
 	const [cards, setCards] = useState([]);
-	const [card, setCard] = useState({ id: uniqid(), image: require(`../images/${cards.length + 1}.png`), wasPicked: false });
+	
+	useEffect(() => {
+		createCardsArray();
+	}, []);
 
 	useEffect(() => {
-		if(cards.length < 14) {
-			setCard({
-				id: uniqid(),
-				image: require(`../images/${cards.length + 2}.png`),
-				wasPicked: false
-			});
+		console.log('Cards after state change: ', cards);
+	}, [cards]);
 
-			setCards(cards.concat(card));
+	useEffect(() => {
+		if(cards.length) resetWasPicked();
+		resetScore();
+	}, [bestScore]);
+
+	const createCardsArray = () => {
+		for(let i=0; i < 14; i++){
+			const card = {
+				id: uniqid(),
+				image: require(`../images/${i+1}.png`),
+				wasPicked: false
+			};
+
+			setCards(prevCards => [...prevCards, card]);
 		}
-	}, [card, cards]);
+	};
 
 	const shuffleCards = (cards) => {
 		return cards.sort((a,b) => 0.5 - Math.random());
@@ -27,7 +39,6 @@ const Card = ({ score, bestScore, incrementScore, updateBestScore, resetScore })
 		const newCards = cards.map(card => {
 			return { ...card, wasPicked: false }
 		});
-		console.log(`newCards: `, newCards);
 		setCards(newCards);
 	};
 
@@ -37,10 +48,6 @@ const Card = ({ score, bestScore, incrementScore, updateBestScore, resetScore })
 
 		if(cardChosen) {
 			if(score > bestScore) updateBestScore();
-			console.log(`Before: `, cards);
-			resetWasPicked();
-			console.log(`After: `, cards);
-			resetScore();
 		} else incrementScore();
 		
 		const newCards = cards.map(card => {
@@ -50,7 +57,6 @@ const Card = ({ score, bestScore, incrementScore, updateBestScore, resetScore })
 			
 			return card;
 		});
-
 		setCards(shuffleCards(newCards));
 	};
 
